@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>{{ dataBuku.judul }}</ion-title>
+    <ion-buttons slot="end" (click)="closeModal(dataBuku)">
+      <ion-button>
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-img src="https://images.template.net/736/Free-Vintage-Book-Cover-Template-2x.jpg"></ion-img>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">JUDUL: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataBuku.judul }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">PENGARANG: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataBuku.pengarang }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">PENERBIT: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataBuku.penerbit }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">KOTA: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataBuku.kota }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">TAHUN: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataBuku.tahun }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">ISBN: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataBuku.isbn }}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-card button (click)="{}" color="secondary">
+    <ion-label class="flex-center btn-padding">PINJAM BUKU</ion-label>
+  </ion-card> -->
+</ion-content>

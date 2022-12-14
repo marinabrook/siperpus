@@ -1,0 +1,18 @@
+ion-button[color="dark"] {
+    text-transform: initial;
+}
+
+ion-content {
+    --background: #850e1e;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.text-danger {
+    color: var(--ion-color-danger);
+}

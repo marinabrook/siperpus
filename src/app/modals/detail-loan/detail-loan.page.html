@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>{{ dataLoan.judul }}</ion-title>
+    <ion-buttons slot="end" (click)="closeModal(dataLoan)">
+      <ion-button>
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">NAMA PEMINJAM: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataLoan.nama }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">JUDUL BUKU: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataLoan.judul }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">STATUS PEMINJAMAN: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataLoan.status_peminjaman }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">TANGGAL PINJAM: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataLoan.tanggal_pinjam }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-weight: bold;">TANGGAL HARUS KEMBALI: </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ dataLoan.tanggal_harus_kembali }}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

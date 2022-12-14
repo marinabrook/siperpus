@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title *ngIf="(id_request_buku == 0)">Tambah Request Buku</ion-title>
+    <ion-title *ngIf="(id_request_buku != 0)">Edit Request Buku</ion-title>
+    <ion-buttons slot="end" (click)="closeModal(null)">
+      <ion-button>
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div [formGroup]="reqbuk_form">
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <ion-label style="font-weight: bold;">NIS: </ion-label>
+          <ion-label>{{ nis }}</ion-label>
+          <!-- <ion-input type='number' [(ngModel)]="nis"></ion-input> -->
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold;">Judul:</ion-label>
+          <ion-input class="form-control" formControlName="judul" type='text'></ion-input>
+        </ion-item>
+        <span class="text-danger ion-padding"
+          *ngIf="reqbuk_form.controls['judul'].hasError('required') && (reqbuk_form.controls['judul'].dirty || reqbuk_form.controls['judul'].touched)">Judul
+          tidak boleh kosong.</span>
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold;">Pengarang:</ion-label>
+          <ion-input class="form-control" formControlName="pengarang" type='text'></ion-input>
+        </ion-item>
+        <span class="text-danger ion-padding"
+          *ngIf="reqbuk_form.controls['pengarang'].hasError('required') && (reqbuk_form.controls['pengarang'].dirty || reqbuk_form.controls['pengarang'].touched)">Pengarang
+          tidak boleh kosong.</span>
+        <ion-item>
+          <ion-label position="floating" style="font-weight: bold;">Alasan:</ion-label>
+          <ion-textarea class="form-control" formControlName="alasan" autoGrow="true" type='text'>
+          </ion-textarea>
+        </ion-item>
+        <span class="text-danger ion-padding"
+          *ngIf="reqbuk_form.controls['alasan'].hasError('required') && (reqbuk_form.controls['alasan'].dirty || reqbuk_form.controls['alasan'].touched)">Alasan
+          tidak boleh kosong.</span>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-button type="submit" class="btn-padding" expand="block" color="success" (click)="addReqbuk()"
+    *ngIf="(id_request_buku == 0)">
+    Tambah
+  </ion-button>
+  <ion-button type="submit" class="btn-padding" expand="block" color="warning" (click)="updateReqbuk(id_request_buku)"
+    *ngIf="(id_request_buku != 0)">
+    Edit
+  </ion-button>
+</ion-content>

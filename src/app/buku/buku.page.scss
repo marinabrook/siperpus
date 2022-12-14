@@ -1,0 +1,36 @@
+.ellipsis {
+    display: block;
+    display: -webkit-box;
+    // max-width: 400px;
+    // height: 109.2px;
+    // margin: 0 auto;
+    // font-size: 26px;
+    // line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 72px;
+}
+
+.ellipsis2 {
+    display: block;
+    display: -webkit-box;
+    // max-width: 400px;
+    // height: 109.2px;
+    // margin: 0 auto;
+    // font-size: 26px;
+    // line-height: 1.4;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ion-card {
+    height: 100%;
+}
+
+ion-content {
+    --background: var(--ion-color-danger);
+}

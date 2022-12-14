@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="danger"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profil Saya</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Request Buku</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-avatar class="center">
+          <ion-img src="../../assets/image/logo-smansa.png"></ion-img>
+        </ion-avatar>
+        <ion-card-title class="ion-text-center">{{ nama }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <div>
+          <ion-label color="dark" style="font-weight: bold;">{{ nis }}</ion-label>
+        </div>
+        <div>
+          <ion-label>{{ jenis }}</ion-label>
+        </div>
+        <div>
+          <ion-label>{{ kelas }}</ion-label>
+        </div>
+        <div>
+          <ion-label>{{ tahun }}</ion-label>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-list>
+
+      <ion-button class="btn-padding" (click)="logout()" expand="block" fill="solid" color="danger">
+        logout
+      </ion-button>
+    </ion-list>
+  </div>
+
+
+</ion-content>

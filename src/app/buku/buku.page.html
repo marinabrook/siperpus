@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="danger"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Daftar Buku</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-searchbar color="light" placeholder="Ketik judul" [(ngModel)]="searchTerm" showCancelButton="focus"
+    animated="true" debounce="333" (ionInput)="onInput($event)" (ionCancel)="getAllBuku()" (ionClear)="getAllBuku()">
+  </ion-searchbar>
+  <!-- (ionChange)="onSearchChange($event)" -->
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" *ngFor="let book of bookList | filter:searchTerm">
+        <ion-card (click)="modalDetail(book.id_buku)">
+          <ion-card-header>
+            <ion-card-subtitle class="ellipsis2">{{ book.pengarang }}</ion-card-subtitle>
+            <ion-card-title class="ellipsis">{{ book.judul }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-img src="https://images.template.net/736/Free-Vintage-Book-Cover-Template-2x.jpg"></ion-img>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

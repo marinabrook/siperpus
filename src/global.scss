@@ -24,3 +24,64 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.center {
+    margin: auto;
+}
+
+.pad-menu {
+    padding-left: 5%;
+    padding-bottom: 4%;
+}
+
+.no-scroll .scroll-content {
+    overflow-y: auto !important;
+}
+
+.ion-item-sidemenu {
+    // --background: #ffe3e3;
+    --color: var(--ion-color-danger);
+
+    // --border-color: #fff;
+    // --border-style: dashed;
+    // --border-width: 2px;
+
+    // --border-radius: 20px;
+
+    --background-activated: #ff9999;
+    --ripple-color: var(--ion-color-danger);
+
+    --detail-icon-color: white;
+    --detail-icon-opacity: 1;
+    --detail-icon-font-size: 20px;
+}
+
+ion-menu::part(backdrop) {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+
+    box-shadow: 4px 0px 16px rgba(255, 0, 0, 0.18);
+}
+
+ion-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+@font-face {
+    font-family: appfont;
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/font/Montserrat.ttf");
+}

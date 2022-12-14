@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
+import { Optional } from '@angular/core';
+import { IonRouterOutlet, Platform } from '@ionic/angular';
+import { App } from '@capacitor/app';
+import { Router } from "@angular/router";
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,13 +12,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Daftar Buku', url: 'buku', icon: 'book' },
+    { title: 'Peminjaman', url: 'loan', icon: 'receipt' },
+    { title: 'Request Buku', url: 'request-buku', icon: 'bookmarks' },
+    { title: 'Profil', url: 'profile', icon: 'person' }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  constructor(
+    private auth: AuthService,
+    private platform: Platform,
+    private router: Router,
+    @Optional() private routerOutlet?: IonRouterOutlet
+  ) {
+    this.platform.backButton.subscribeWithPriority(-1, () => {
+      if (this.router.url === '/login' || this.router.url === '/loader') {
+        App.exitApp();
+      }
+      if (!this.routerOutlet.canGoBack()) {
+        App.exitApp();
+      }
+    });
+  }
+
 }
