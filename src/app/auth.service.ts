@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  base_path: string = "http://localhost/siperpus/";
+  base_path: string = "https://sman1purwokerto.sch.id/api_siperpus/";
+
   isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
   constructor(

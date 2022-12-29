@@ -60,7 +60,7 @@ export class LoginPage implements OnInit {
     if (!this.ionicForm.valid) {
       return false;
     } else {
-      //test network
+      // test network
       // this._apiService.testnet().subscribe((res: any) => {
       //   let respon = JSON.parse(res);
       //   this.presentToast(respon['data']['first_name']);
@@ -70,6 +70,7 @@ export class LoginPage implements OnInit {
         nis: this.ionicForm.get('nis').value,
         pass: this.ionicForm.get('pass').value
       }
+
       this._apiService.login(data).subscribe((res: any) => {
         let respon = JSON.parse(res);
         if (respon['status'] == 1) {

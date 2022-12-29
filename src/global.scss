@@ -85,3 +85,19 @@ ion-img {
     font-weight: normal;
     src: url("./assets/font/Montserrat.ttf");
 }
+
+button.alert-button.alert-button-confirm {
+    color: var(--ion-color-danger);
+}
+
+.md button.alert-button.alert-button-confirm {
+    color: var(--ion-color-danger);
+}
+
+button.alert-button.alert-button-cancel {
+    color: var(--ion-color-danger);
+}
+
+.ios button.alert-button.alert-button-cancel {
+    color: var(--ion-color-danger);
+}

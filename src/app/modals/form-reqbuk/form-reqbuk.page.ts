@@ -50,7 +50,7 @@ export class FormReqbukPage implements OnInit {
       this.reqbuk_form.setValue({
         judul: this.judul,
         pengarang: this.pengarang,
-        alasan: this.pengarang
+        alasan: this.alasan
       });
     }
   }

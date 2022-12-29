@@ -16,6 +16,7 @@ export class RequestBukuPage implements OnInit {
   pengarang: any;
   alasan: any;
   listreqbuk: any = [];
+  temp_judul: string;
 
   constructor(
     private _apiService: ApiService,
@@ -24,10 +25,11 @@ export class RequestBukuPage implements OnInit {
     public loadCtrl: LoadingController,
     public modalCtrl: ModalController
   ) {
-    this.getAllReqbuk();
+
   }
 
   ngOnInit() {
+    this.getAllReqbuk();
   }
 
   async presentToast(a) {
@@ -91,10 +93,11 @@ export class RequestBukuPage implements OnInit {
 
   // FUNCTION CONFIRM DELETE NOTE
   async deleteNote(i) {
+    this.temp_judul = this.listreqbuk[i]['judul'];
     // MEMBUAT ALERT PROMPT
     const alert = await this.alertCtrl.create({
       header: 'Delete',
-      message: `Hapus ${this.listreqbuk[i]['judul']} ?`,
+      message: `Hapus ${this.temp_judul} ?`,
       buttons: [
         {
           text: "Tidak"
@@ -128,13 +131,10 @@ export class RequestBukuPage implements OnInit {
     await loading.present();
 
     // MENGIRIM ID NOTE YANG INGIN DIHAPUS KE API
-    await this._apiService.deleteReqbuk(this.listreqbuk[i]["id_request_buku"]).subscribe(
+    this._apiService.deleteReqbuk(this.listreqbuk[i]["id_request_buku"]).subscribe(
       res => {
-        // TAMPILKAN PESAN
-        this.presentToast(`${this.listreqbuk[i]['judul']} berhasil dihapus`);
 
         this.listreqbuk.splice(i, 1); // HAPUS DATA NOTE DARI ARRAY
-
 
         // SEMBUNYIKAN LOADING
         loading.dismiss();
@@ -146,6 +146,8 @@ export class RequestBukuPage implements OnInit {
         loading.dismiss();
       }
     );
+    // TAMPILKAN PESAN
+    this.presentToast(`${this.temp_judul} berhasil dihapus`);
   }
 
   refreshPage(event) {

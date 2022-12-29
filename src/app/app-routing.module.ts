@@ -9,11 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule), canLoad: [AuthGuard]
+    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'request-buku',
-    loadChildren: () => import('./request-buku/request-buku.module').then(m => m.RequestBukuPageModule), canLoad: [AuthGuard]
+    loadChildren: () => import('./request-buku/request-buku.module').then(m => m.RequestBukuPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'form-reqbuk',
@@ -37,7 +39,8 @@ const routes: Routes = [
   },
   {
     path: 'buku',
-    loadChildren: () => import('./buku/buku.module').then(m => m.BukuPageModule), canLoad: [AuthGuard]
+    loadChildren: () => import('./buku/buku.module').then(m => m.BukuPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'detail-buku',
@@ -45,7 +48,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule), canLoad: [AuthGuard]
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'loan',
@@ -57,7 +61,7 @@ const routes: Routes = [
   },
   {
     path: 'lupa',
-    loadChildren: () => import('./modals/lupa/lupa.module').then( m => m.LupaPageModule)
+    loadChildren: () => import('./modals/lupa/lupa.module').then(m => m.LupaPageModule)
   }
 ];
 
